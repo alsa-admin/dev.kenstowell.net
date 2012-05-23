@@ -59,18 +59,20 @@ Index.prototype = {
     loadStyles: function() {
         var self = this;
 
-        //set position of the cross hairs
-        $('div#cross-hairs').css({
-           top: (($(window).height() - $('div#cross-hairs').height()) / 2),
-           left: (($(window).width() - $('div#cross-hairs').width()) / 2)
-        });
         //Get position of div one
         var a = $U.getItemPosition(document.getElementById('position-one'));
         console.log(a);
         var b = $('#main-nav');
         console.log($U.getItemPosition(document.getElementById('main-nav')));
 
-			$('div#crosshairs').crosshairs({width:'20px', height: '20px'});
+			$('div#crosshairs').crosshairs({
+               size: '20px',
+               alignment: 'center',
+               pathing: 'fixed',
+               targets: {
+                    1: $('#position-one')
+               }
+            });
     },
     /**
      * BIND EVENTS
