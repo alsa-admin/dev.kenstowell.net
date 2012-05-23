@@ -69,6 +69,8 @@ Index.prototype = {
         console.log(a);
         var b = $('#main-nav');
         console.log($U.getItemPosition(document.getElementById('main-nav')));
+
+			$('div#crosshairs').crosshairs({width:'20px', height: '20px'});
     },
     /**
      * BIND EVENTS
@@ -80,8 +82,7 @@ Index.prototype = {
             //prevent any page loads from occurring
             e.preventDefault();
             $U.scrollToObject(document.getElementById('position-one'))
-        })
-
+        });
     }
 }
 /************************************************************* END ***************************************************************************************/
