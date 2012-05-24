@@ -65,14 +65,34 @@ Index.prototype = {
         var b = $('#main-nav');
         console.log($U.getItemPosition(document.getElementById('main-nav')));
 
-			$('div#crosshairs').crosshairs({
-               size: '20px',
-               alignment: 'center',
-               pathing: 'fixed',
-               targets: {
-                    1: $('#position-one')
-               }
-            });
+				//set up the crosshairs plugin
+				$('div#crosshairs').crosshairs({
+					 size: '20px',
+					 alignment: 'center',
+					 pathing: 'fixed',
+					 content: {
+					 		home: {
+								trigger: $('a#main-nav-link-home'),
+								target: $('#position-one')
+							},
+							about: {
+								trigger: $('a#main-nav-link-about'),
+							 	target: $('#position-two')
+							},
+						 	services: {
+							 	trigger: $('a#main-nav-link-services'),
+							 	target: $('#position-three')
+						 	},
+							work: {
+								trigger: $('a#main-nav-link-work'),
+								target: $('#position-four')
+							},
+						 	contact: {
+								 trigger: $('a#main-nav-link-contact'),
+								 target: $('#position-five')
+							 }
+					 }
+				});
     },
     /**
      * BIND EVENTS
@@ -83,7 +103,6 @@ Index.prototype = {
         $('.main-nav-link ').bind('click', function(e) {
             //prevent any page loads from occurring
             e.preventDefault();
-            $U.scrollToObject(document.getElementById('position-one'))
         });
     }
 }
